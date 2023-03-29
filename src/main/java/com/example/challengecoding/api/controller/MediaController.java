@@ -24,9 +24,9 @@ public class MediaController {
     public Item getCap(){
         return mediaService.getCap1();
     }
-    @GetMapping ("/get_image")
-    public Image getImage(@PathVariable String Url){
-        return mediaService.getImage();
+    @GetMapping ("/get_media/{Id}")
+    public Media GetMediaWithId(@PathVariable String Id){
+        return mediaService.getMediaWithId(Id);
     }
     @GetMapping ("/get_genres")
     public Genres getGenres(@PathVariable String Name){

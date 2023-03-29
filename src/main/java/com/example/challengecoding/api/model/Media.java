@@ -18,6 +18,7 @@ public class Media {
     private String Description;
     @JsonProperty("ShortDesc")
     private String Summary;
+    @JsonProperty ("Images")
     private List<Image> images;
 
 }
