@@ -9,4 +9,6 @@ import java.util.List;
 public class Item {
     @JsonProperty("Items")
     private List<Cap1> items;
+    @JsonProperty("ItemsType")
+    private String itemsType;
 }

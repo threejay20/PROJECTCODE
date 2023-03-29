@@ -33,7 +33,10 @@ public class MediaController {
     @GetMapping ("/number_medias/{num}")
     public Item getNumberOfMedia(@PathVariable String num){
         return mediaService.getNumberOfMedia(num);
+
+
     }
+
 }
 
 

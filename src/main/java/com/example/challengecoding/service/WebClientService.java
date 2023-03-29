@@ -70,12 +70,24 @@ public class WebClientService {
                 retrieve().bodyToMono(Media.class).block();
 
 
+
+
     }
 
-    public Item getNumberOfMedia(String num) {
-        String uri = UriComponentsBuilder.fromUriString(GET_NUMBER_OF_MEDIA).queryParam("$top", num).build().toUriString();
-        return webClient.get().uri(uri).retrieve().bodyToMono(Item.class).block();
 
+
+    public Item getNumberOfMedia(String num) {
+        int i = Integer.parseInt(num);
+Item item = new Item();
+        if (i >= 1 && i <= 10) {
+            String uri = UriComponentsBuilder.fromUriString(GET_NUMBER_OF_MEDIA).queryParam("$top", num)
+                    .build()
+                    .toUriString();
+
+            item =  webClient.get().uri(uri).retrieve().bodyToMono(Item.class).block();
+        }
+
+    return item;
     }
 }
 
