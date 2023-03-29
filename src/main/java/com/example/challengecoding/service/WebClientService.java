@@ -20,6 +20,7 @@ public class WebClientService {
     public static final String ALL_MEDIA = "https://capi.9c9media.com/destinations/se_atexace/platforms/desktop/medias/32254";
     public static final String All_CAPS = "https://capi.9c9media.com/destinations/se_atexace/platforms/desktop/medias?$top=10";
     public static final String GET_MEDIA_ID = "https://capi.9c9media.com/destinations/se_atexace/platforms/desktop/medias/";
+    public  static final String GET_NUMBER_OF_MEDIA ="https://capi.9c9media.com/destinations/se_atexace/platforms/desktop/medias?$top=";
 
 
     public Media getMedia() {
@@ -68,6 +69,12 @@ public class WebClientService {
         return webClient.get().uri(uri).
                 retrieve().bodyToMono(Media.class).block();
 
+
+    }
+
+    public Item getNumberOfMedia(String num) {
+        String uri = UriComponentsBuilder.fromUriString(GET_NUMBER_OF_MEDIA).path(num).build().toUriString();
+        return webClient.get().uri(uri).retrieve().bodyToMono(Item.class).block();
 
     }
 }

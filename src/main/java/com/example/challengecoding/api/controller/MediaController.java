@@ -20,17 +20,19 @@ public class MediaController {
     public Media getmedia() {
         return mediaService.getMedia();
     }
-    @GetMapping ("/get_cap")
-    public Item getCap(){
+
+    @GetMapping("/get_cap")
+    public Item getCap() {
         return mediaService.getCap1();
     }
-    @GetMapping ("/get_media/{Id}")
-    public Media GetMediaWithId(@PathVariable String Id){
+
+    @GetMapping("/get_media/{Id}")
+    public Media GetMediaWithId(@PathVariable String Id) {
         return mediaService.getMediaWithId(Id);
     }
-    @GetMapping ("/get_genres")
-    public Genres getGenres(@PathVariable String Name){
-        return mediaService.getGenres();
+    @GetMapping ("/number_medias/{num}")
+    public Item getNumberOfMedia(@PathVariable String num){
+        return mediaService.getNumberOfMedia(num);
     }
 }
 
