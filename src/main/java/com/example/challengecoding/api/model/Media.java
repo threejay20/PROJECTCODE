@@ -20,6 +20,10 @@ public class Media {
     private String Summary;
     @JsonProperty ("Images")
     private List<Image> images;
+    @JsonProperty ("Genres")
+    private List<Genres> genresList;
+
+
 
 }
 
