@@ -6,9 +6,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
+import org.springframework.web.bind.annotation.GetMapping;
 
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -89,5 +91,19 @@ Item item = new Item();
 
     return item;
     }
+    public Media getMediaWithImage (String id, String name){
+        String uri = UriComponentsBuilder.fromUriString(GET_MEDIA_ID).path(id).build().toUriString();
+        Media media = webClient.get().uri(uri).
+                retrieve().bodyToMono(Media.class).block();
+
+        List<Image> images = media.getImages();
+        List<Image> collect = images.stream().filter(image -> image.getType().equals(name)).toList();
+        media.setImages(collect);
+
+        return media;
+    }
+
 }
+
+
 

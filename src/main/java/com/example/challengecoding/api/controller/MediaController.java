@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -35,6 +36,10 @@ public class MediaController {
         return mediaService.getNumberOfMedia(num);
 
 
+    }
+    @GetMapping("/get_poster/{Id}")
+    public Media getMediaWithImage(@PathVariable String Id,@RequestParam String name) {
+        return mediaService.getMediaWithImage(Id, name);
     }
 
 }
